@@ -16,7 +16,9 @@ const displayData = (data) =>{
         // console.log(currency);
         console.log(countyName);
         div = document.createElement("div");
-        div.classList.add("col");
+        div.classList.add("col-sm-12");
+        div.classList.add("col-md-4");
+        div.classList.add("col-lg-4");
         div.innerHTML = `
         
         <div class="card h-100">
