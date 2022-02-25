@@ -15,14 +15,14 @@ const displayData = (data) =>{
 
         // console.log(currency);
         console.log(countyName);
-        const div = document.createElement("div");
+        div = document.createElement("div");
         div.classList.add("col");
         div.innerHTML = `
         
         <div class="card h-100">
             <img src="${countyName.flags.png}" class="card-img-top" alt="country flag">
             <div class="card-body">
-                <h5 class="card-title fw-bold">${countyName.name.common} (${countyName.cca2})</h5>
+                <h5 class="card-title fw-bold country-name">${countyName.name.common} (${countyName.cca2})</h5>
                 <p class ="mb-1"><span class = "fw-bold">Capital:</span> ${countyName.capital}</p>
                 <p class ="mb-1"><span class = "fw-bold">Population:</span> ${countyName.population}</p>
                 <p class ="mb-1"><span class = "fw-bold">Region:</span> ${countyName.region}</p>
@@ -35,7 +35,27 @@ const displayData = (data) =>{
     }
 }
 
+
 loadData()
+
+// const searchCountry = () =>{
+//     const countryname = document.getElementsByClassName("country-name");
+//     const searchedField = document.getElementById("searchbar");
+//     const searchValue = searchedField.value;
+
+//     for(const name in countryname){
+//         const Cname = countryname[name].innerText;
+//         if(searchValue.includes(Cname)){
+//             document.getElementById("display-countries").innerHTML = "";
+//             displayCountires.appendChild(div);
+
+//                 }
+
+//         // console.log(Cname);
+//     }
+
+// }
+
 
 
 
