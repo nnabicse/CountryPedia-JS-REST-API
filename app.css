@@ -6,8 +6,10 @@ body{
 #title{
     color: #0D70A7; 
 }
-input[type="text"]::placeholder {  
+
+ input[type="text"]::placeholder {  
                   
-    /* Firefox, Chrome, Opera */ 
+    /* Firefox, Chrome, Opera  */
     text-align: center; 
 } 
+
