@@ -1,15 +1,8 @@
-var myModal = document.getElementById('myModal')
-
-myModal.addEventListener('shown.bs.modal', function () {
-  myInput.focus()
-})
-
 const loadData = () =>{
     fetch("https://restcountries.com/v3.1/all")
     .then(response => response.json())
     .then(data => displayData(data))
 }
-
 
 
 const searchCountry = () =>{
@@ -52,11 +45,38 @@ const displayData = (data) =>{
                     </div>
                 </div>
                 <div class="d-grid gap-2 card-footer">
-                    <button class="btn btn-primary mb-0" type="button" data-toggle="modal" data-target="#myModal" onclick = "displayDetails()">Button</button>
+                <button class="btn btn-primary mb-0" type="button" data-toggle="modal" data-target="#myModal">Learn More</button>
                 </div>
             </div>
             `;
-            
+            const modal = document.getElementById("display-details");
+            modal.innerHTML = "";
+            const detailsDiv = document.createElement('div');
+
+            detailsDiv.classList.add("modal-content");
+
+            detailsDiv.innerHTML = `
+
+            <div class="modal-header">
+            <h5 class="modal-title">${countyName.name.official}</h5>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+        <p class ="mb-1"><span class = "fw-bold">Capital:</span> ${countyName.capital}</p>
+        <p class ="mb-1"><span class = "fw-bold">Population:</span> ${countyName.population}</p>
+        <p class ="mb-1"><span class = "fw-bold">Area:</span> ${countyName.area}</p>
+        <p class ="mb-1"><span class = "fw-bold">Continents:</span> ${countyName.continents[0]}</p>
+        <p class ="mb-1"><span class = "fw-bold">Region:</span> ${countyName.region}</p>
+        <p class ="mb-1"><span class = "fw-bold">Sub Region:</span> ${countyName.subregion}</p>
+        <p class ="mb-1"><span class = "fw-bold">Time Zone:</span> ${countyName.timezones[0]}</p>
+        <p class ="mb-1"><span class = "fw-bold">Start of Week:</span> ${countyName.startOfWeek}</p>
+        </div>
+        <div class="modal-footer">
+            <p class="text-center m-auto">For any editorial, feel free to email: abc@def.com</p>
+        </div>
+            `;
+
+            modal.appendChild(detailsDiv);
             displayCountires.appendChild(div);
         }
 
@@ -85,11 +105,37 @@ const displayData = (data) =>{
                     </div>
                 </div>
                 <div class="d-grid gap-2 card-footer">
-                    <button class="btn btn-primary mb-0" type="button" data-toggle="modal" data-target="#myModal">Button</button>
+                    <button class="btn btn-primary mb-0" type="button" data-toggle="modal" data-target="#myModal">Learn More</button>
                 </div>
-            </div>
             `;
-            
+            const modal = document.getElementById("display-details");
+            modal.innerHTML = "";
+            const detailsDiv = document.createElement('div');
+
+            detailsDiv.classList.add("modal-content");
+
+            detailsDiv.innerHTML = `
+
+            <div class="modal-header">
+            <h5 class="modal-title">${countyName.name.official}</h5>
+            <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center">
+        <p class ="mb-1"><span class = "fw-bold">Capital:</span> ${countyName.capital}</p>
+        <p class ="mb-1"><span class = "fw-bold">Population:</span> ${countyName.population}</p>
+        <p class ="mb-1"><span class = "fw-bold">Area:</span> ${countyName.area}</p>
+        <p class ="mb-1"><span class = "fw-bold">Continents:</span> ${countyName.continents[0]}</p>
+        <p class ="mb-1"><span class = "fw-bold">Region:</span> ${countyName.region}</p>
+        <p class ="mb-1"><span class = "fw-bold">Sub Region:</span> ${countyName.subregion}</p>
+        <p class ="mb-1"><span class = "fw-bold">Time Zone:</span> ${countyName.timezones[0]}</p>
+        <p class ="mb-1"><span class = "fw-bold">Start of Week:</span> ${countyName.startOfWeek}</p>
+        </div>
+        <div class="modal-footer">
+        <p class="text-center m-auto">For any editorial, feel free to email: abc@def.com</p>
+        </div>
+            `;
+
+            modal.appendChild(detailsDiv);
             displayCountires.appendChild(div);
         }
     }
@@ -97,29 +143,12 @@ const displayData = (data) =>{
         
 }
 
-const displayDetails = (data) =>{
-    const modal = document.getElementById("display-details");
-    const div = document.createElement('div');
 
-    div.classList.add("modal-content");
 
-    div.innerHTML = `
+// const displayDetails = () =>{
 
-    <div class="modal-header">
-    <h5 class="modal-title">Titile</h5>
-    <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
-  </div>
-  <div class="modal-body">
-    <p>Modal body text goes here.</p>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-    <button type="button" class="btn btn-primary">Save changes</button>
-  </div>
-    `;
 
-    modal.appendChild(div);
-}
+    
 
 
 loadData()
